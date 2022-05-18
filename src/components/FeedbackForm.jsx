@@ -5,7 +5,7 @@ import RatingSelect from './RatingSelect'
 import Context from '../context/Context'
 
 export default function FeedbackForm() {
-  const { addFeedback, feedbackEdit } = useContext(Context)
+  const { addFeedback, feedbackEdit, updateFeedback } = useContext(Context)
 
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
@@ -13,8 +13,6 @@ export default function FeedbackForm() {
   const [message, setMessage] = useState('')
 
   useEffect(() => {
-    console.log('hello') // this code runs whenever the array of dependency list
-
     if (feedbackEdit.edit) {
       setBtnDisabled(false)
       setText(feedbackEdit.item.text)
@@ -45,8 +43,12 @@ export default function FeedbackForm() {
         rating,
       }
 
-      addFeedback(newFeedback)
+      feedbackEdit.edit
+        ? updateFeedback(feedbackEdit.item.id, newFeedback)
+        : addFeedback(newFeedback)
+
       setText('')
+      setRating(null)
     }
   }
 

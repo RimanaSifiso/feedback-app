@@ -4,11 +4,15 @@ import Context from '../context/Context'
 export default function RatingSelect({ select }) {
   const [selected, setSelected] = useState(10)
 
-  const { feedbackEdit } = useContext(Context)
+  const { feedbackEdit, feedback} = useContext(Context)
 
   useEffect(() => { 
     setSelected(feedbackEdit.item.rating)
-   },[feedbackEdit])
+  }, [feedbackEdit])
+  
+  useEffect(() => {
+    setSelected(null)
+  }, [feedback])
 
   const handleChange = (e) => {
     setSelected(+e.currentTarget.value)
