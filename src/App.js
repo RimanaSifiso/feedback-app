@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackList from './components/FeedbackList'
 
-import FeedbackData from './data/FeedbackData'
 import FeedbackForm from './components/FeedbackForm'
 
 import About from './components/pages/About'
@@ -13,18 +12,7 @@ import { ContextProvider } from './context/Context'
 
 export default function App() {
  
-
-  // const deleteFeedback = (id) => {
-  //   window.confirm('Are you sure?') &&
-  //     setFeedback(feedback.filter((item) => item.id !== id))
-  // }
-
-  // const addFeedBack = (newFeedback) => {
-  //   newFeedback.id = uuidv4()
-  //   console.log(newFeedback)
-  //   setFeedback([newFeedback, ...feedback])
-  // }
-
+  
   return (
     <ContextProvider>
       <AppHeader />

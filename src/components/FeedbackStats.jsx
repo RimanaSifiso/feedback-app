@@ -2,7 +2,7 @@
 import Context from "../context/Context"
 import {useContext} from 'react'
 
-export default function FeedbackStats({  }) {
+export default function FeedbackStats() {
   const {feedback} = useContext(Context)
 
   let average = 0
